@@ -1,0 +1,94 @@
+.smart-section {
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.smart-title h2 {
+    font-size: 2.5rem;
+    color: #1d3557;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.smart-title h4 {
+    font-size: 1.3rem;
+    color: #457b9d;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.smart-text p {
+    font-size: 1rem;
+    color: #1d3557;
+    margin-bottom: 15px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Exams Grid */
+.exam-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.exam-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.exam-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.check-icon {
+    color: #06d6a0;
+    font-size: 1.2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .smart-title h2 {
+        font-size: 2rem;
+    }
+
+    .smart-title h4 {
+        font-size: 1.1rem;
+    }
+
+    .smart-text p {
+        font-size: 0.95rem;
+    }
+
+    .exam-item {
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .smart-title h2 {
+        font-size: 1.7rem;
+    }
+
+    .smart-title h4 {
+        font-size: 1rem;
+    }
+
+    .smart-text p {
+        font-size: 0.9rem;
+    }
+}
