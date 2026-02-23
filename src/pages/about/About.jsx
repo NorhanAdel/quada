@@ -37,6 +37,21 @@ const About = ({ lang }) => {
     };
 
     const points = [
+        // ✅ الكارتين الجداد
+        {
+            icon: <FaLightbulb />,
+            title: isAR
+                ? "أفكار عظيمة في الإدارة والقيادة"
+                : "Great Ideas in Management & Leadership",
+        },
+        {
+            icon: <FaBrain />,
+            title: isAR
+                ? "طريق للإدارة والقيادة والتعليم في عصر الذكاء الاصطناعي"
+                : "A Path to Management, Leadership & Education in the AI Era",
+        },
+
+        // باقي الكروت الأصلية
         {
             icon: <FaCubes />,
             title: isAR
@@ -160,7 +175,6 @@ const About = ({ lang }) => {
                         </>
                     )}
                 </motion.p>
-
 
                 {/* Points Section */}
                 <motion.div
