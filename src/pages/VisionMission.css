@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+.vision-section {
+    padding: 110px 0;
+    background: linear-gradient(135deg, #ffffff, #F5F4F2);
+    font-family: "Cairo", sans-serif;
+}
+
+/* TITLE */
+.vision-main-title {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: #1E3A8A; /* أزرق داكن */
+    margin-bottom: 80px;
+    opacity: 0;
+    animation: fadeDown 1s forwards;
+}
+
+/* GRID */
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 50px;
+}
+
+/* CARD */
+.vision-card {
+    background: white;
+    padding: 55px 45px;
+    border-radius: 28px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+    transition: transform 0.4s, box-shadow 0.4s;
+    position: relative;
+    text-align: center;
+    opacity: 0;
+    animation: fadeUp 1s forwards;
+}
+
+/* stagger animation */
+.vision-card:nth-child(1) { animation-delay: 0s; }
+.vision-card:nth-child(2) { animation-delay: 0.2s; }
+.vision-card:nth-child(3) { animation-delay: 0.4s; }
+.vision-card:nth-child(4) { animation-delay: 0.6s; }
+.vision-card::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 100%;
+    height: 10px; /* سماكة البوردر */
+    background: #4A90E2; /* أزرق ثابت بدل gradient */
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+}
+
+
+.vision-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* ICON */
+.vision-icon {
+    font-size: 60px;
+    color: #4A90E2; /* أزرق واضح */
+    margin-bottom: 25px;
+    animation: pulse 2s infinite;
+}
+
+.vision-card h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #1E3A8A;
+    font-weight: bold;
+}
+
+.vision-card p {
+    font-size: 19px;
+    line-height: 2;
+    color: #555;
+}
+
+/* BUTTON */
+.vision-btn-box {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.vision-btn {
+    background: linear-gradient(135deg, #4A90E2, #1E3A8A); /* أزرق تدريجي */
+    border: none;
+    padding: 16px 50px;
+    border-radius: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.4s, box-shadow 0.4s;
+    box-shadow: 0 10px 25px rgba(74,144,226,0.5);
+}
+
+.vision-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 45px rgba(74,144,226,0.7);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .vision-section {
+        padding: 60px 15px;
+    }
+
+    .vision-main-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .vision-card {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .vision-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .vision-icon {
+        font-size: 42px;
+        margin-bottom: 18px;
+    }
+
+    .vision-card h3 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .vision-card p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .vision-btn-box {
+        margin-top: 50px;
+    }
+
+    .vision-btn {
+        padding: 12px 35px;
+        font-size: 16px;
+    }
+
+    .vision-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(74,144,226,0.6);
+    }
+}
+
+

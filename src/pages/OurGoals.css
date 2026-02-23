@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+.goals-section {
+    padding: 140px 20px;
+    background: linear-gradient(135deg, #F5F4F2, #ffffff);
+    font-family: "Cairo", sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* خطوط أزرق متحركة بدل الذهبي */
+.goals-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+            45deg,
+            rgba(74,144,226,0.08), /* أزرق فاتح */
+            rgba(74,144,226,0.08) 2px,
+            transparent 2px,
+            transparent 20px
+    );
+    animation: moveLines 15s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveLines {
+    from { transform: rotate(0deg) translate(0, 0); }
+    to { transform: rotate(360deg) translate(50px, 50px); }
+}
+
+.goals-title {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 80px;
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.goal-card {
+    background: rgba(255,255,255,0.95);
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    text-align: center;
+    position: relative;
+    cursor: default;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* بوردر علوي */
+.goal-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(to right, #4A90E2, #1E3A8A); /* gradient أزرق */
+    left: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* خطوط متحركة داخل الكارت */
+.goal-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(74,144,226,0.2), transparent 70%);
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+}
+
+/* Hover Animation */
+.goal-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(74,144,226,0.5), 0 0 25px rgba(74,144,226,0.3);
+    filter: brightness(1.08);
+}
+
+.goal-card:hover::after {
+    transform: rotate(45deg);
+}
+
+/* أيقونة الكارت */
+.goal-icon {
+    font-size: 45px;
+    color: #1E3A8A; /* أزرق غامق */
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+/* نص الكارت */
+.goal-card p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #555;
+}
+
+/* Pulse animation للأيقونة */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* Fade in Animation عند ظهور الكارت */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =================== MOBILE RESPONSIVE =================== */
+@media (max-width: 768px) {
+    .goals-section {
+        padding: 70px 15px;
+    }
+
+    .goals-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .goals-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .goal-card {
+        width: 100%;
+        max-width: none;
+        padding: 25px 18px;
+        border-radius: 16px;
+        animation: fadeUp 0.8s forwards;
+    }
+
+    .goal-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 15px 35px rgba(74,144,226,0.4);
+    }
+
+    .goal-icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .goal-card p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}
