@@ -1,54 +1,60 @@
 import React from "react";
-import { 
-    FaChalkboardTeacher, // التعليمية
-    FaUniversity,         // التربوية
-    FaBusinessTime,       // الإدارية
-    FaSearch,             // للبحوث
-    FaCheckCircle         // للقبول
-} from "react-icons/fa";
+import { FaEye, FaBullseye, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./VisionMission.css";
 
-const VisionMission = ({ lang = "en" }) => {
+const VisionMission = ({ lang }) => {
 
     const text = {
         ar: {
-            title: "مجالات خدماتنا",
-            cards: [
-                { icon: FaChalkboardTeacher, title: "خدمات تعليمية" },
-                { icon: FaUniversity, title: "خدمات تربوية" },
-                { icon: FaBusinessTime, title: "خدمات إدارية" },
-                { icon: FaSearch, title: "خدمات للبحوث" },
-                { icon: FaCheckCircle, title: "خدمات للقبول" },
-            ]
+            title: "رؤيتنا ورسالتنا",
+            visionTitle: "رؤيتنا",
+            visionText: "لتكون لب - بإذن الله - أحد أهم وأبرز البيوت الاستشارية في مجالها في هذا الجزء من العالم بحلول عام الرؤية 2030.",
+            missionTitle: "رسالتنا",
+            missionText: "تقديم خدمات استشارية ريادية من خلال استقطاب أفضل الكفاءات والخبرات الداخلية والخارجية وتسخير كافة الإمكانات والممكنات لأجل تقديم أفكار إبداعية وحلول عملية ومبادرات نوعية في عوالم التربية والتعليم والإدارة والقيادة.",
+            button: "انتقل إلى الخدمات"
         },
+
         en: {
-            title: "Our Services",
-            cards: [
-                { icon: FaChalkboardTeacher, title: "Educational Services" },
-                { icon: FaUniversity, title: "Pedagogical Services" },
-                { icon: FaBusinessTime, title: "Administrative Services" },
-                { icon: FaSearch, title: "Research Services" },
-                { icon: FaCheckCircle, title: "Admission Services" },
-            ]
+            title: "Our Vision & Mission",
+            visionTitle: "Our Vision",
+            visionText: "To become, God willing, one of the most prominent and leading consultancy houses in our field in this part of the world by Saudi Vision 2030.",
+            missionTitle: "Our Mission",
+            missionText: "Providing pioneering consultancy services by attracting the best internal and external talents and expertise, utilizing all capabilities to deliver creative ideas, practical solutions, and impactful initiatives in education, administration, and leadership.",
+            button: "Go To Services"
         }
     };
 
     return (
         <section className="vision-section" dir={lang === "ar" ? "rtl" : "ltr"}>
             <div className="container">
+
                 <h2 className="vision-main-title">{text[lang].title}</h2>
 
                 <div className="vision-grid">
-                    {text[lang].cards.map((card, i) => {
-                        const Icon = card.icon;
-                        return (
-                            <div className="vision-card" key={i}>
-                                <Icon className="vision-icon" />
-                                <h3>{card.title}</h3>
-                            </div>
-                        );
-                    })}
+
+                    {/* Vision */}
+                    <div className="vision-card">
+                        <FaEye className="vision-icon" />
+                        <h3>{text[lang].visionTitle}</h3>
+                        <p>{text[lang].visionText}</p>
+                    </div>
+
+                    {/* Mission */}
+                    <div className="vision-card">
+                        <FaBullseye className="vision-icon" />
+                        <h3>{text[lang].missionTitle}</h3>
+                        <p>{text[lang].missionText}</p>
+                    </div>
+
                 </div>
+
+                <div className="vision-btn-box">
+                    <button className="vision-btn ">
+                        {text[lang].button}
+                        {lang === "ar" ? <FaArrowLeft /> : <FaArrowRight />}
+                    </button>
+                </div>
+
             </div>
         </section>
     );
